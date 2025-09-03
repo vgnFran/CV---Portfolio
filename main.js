@@ -91,11 +91,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputMsj = document.querySelector("#inputMsj")
   const allInputs = document.querySelectorAll("#inputEmail , #inputName, #inputMsj")
 
-  function inputLoop(borderStyle){
+  function inputLoop(borderStyle, borderBottom= false){
 
     allInputs.forEach(inp =>{
-      inp.value = ""
-      inp.style.border = borderStyle
+
+      if(borderBottom == false){
+        inp.value = ""
+        inp.style.border = borderStyle
+      } else {
+        inp.style.borderBottom = "2px solid gray"
+      }
     })
 
   }
@@ -115,9 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         inputLoop("none")
 
-        allInputs.forEach(inp =>{
-          inp.style.borderBottom = "2px solid gray"
-        })
+        inputLoop("", true)
 
       })
       .catch((err) => console.error("Error:", err));
@@ -127,10 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
   }
-
-
 
 
 })
