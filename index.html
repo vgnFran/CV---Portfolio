@@ -106,7 +106,6 @@
 
                         </div>
 
-                        <button class="button-style">Descargar CV</button>
                     </div>
 
 
@@ -468,11 +467,11 @@
                     </div>
 
                     <form id="form-contacto">
-                        <input type="text" placeholder="Tu Nombre">
-                        <input type="email" placeholder="Tu Email">
-                        <textarea name="" id="" placeholder="Mensaje"></textarea>
+                        <input type="text" placeholder="Tu Nombre" id="inputName" name="user_name">
+                        <input type="email" placeholder="Tu Email" id="inputEmail" name="user_email">
+                        <textarea  placeholder="Mensaje" id="inputMsj" name="user_message"></textarea>
                         <div id="container-button">
-                            <button class="button-style">Enviar Mensaje</button>
+                            <button class="button-style" id="btnEmail">Enviar Mensaje</button>
                         </div>
                     </form>
 
@@ -487,7 +486,7 @@
     <footer>
 
     </footer> 
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>    
     <script src="main.js"></script>   
 </body>
 </html>

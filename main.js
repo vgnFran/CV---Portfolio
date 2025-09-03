@@ -83,4 +83,54 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   typeWriter()
+
+  const emailHTml = document.getElementById("form-contacto")
+  const buttonEmail = document.querySelector("#btnEmail")
+  const inputName = document.querySelector("#inputName")
+  const inputEmail = document.querySelector("#inputEmail")
+  const inputMsj = document.querySelector("#inputMsj")
+  const allInputs = document.querySelectorAll("#inputEmail , #inputName, #inputMsj")
+
+  function inputLoop(borderStyle){
+
+    allInputs.forEach(inp =>{
+      inp.value = ""
+      inp.style.border = borderStyle
+    })
+
+  }
+
+  buttonEmail.onclick=(e)=>{
+
+    e.preventDefault()
+
+    if(inputEmail.value != "" && inputName.value != ""){
+
+      inputLoop("1px solid green")
+      
+      emailjs.init("5WlXzf6wPkuMVj5Cw")
+      emailjs.sendForm("service_qgxp3z1", "template_k3f382c", emailHTml)
+      
+      .then(() => {
+    
+        inputLoop("none")
+
+        allInputs.forEach(inp =>{
+          inp.style.borderBottom = "2px solid gray"
+        })
+
+      })
+      .catch((err) => console.error("Error:", err));
+
+    } else{      
+      inputLoop("1px solid red")
+    }
+
+
+
+  }
+
+
+
+
 })
